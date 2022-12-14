@@ -23,4 +23,11 @@ class Bullet {
     move() {
 		this.x += this.speed;
 	}
+	
+	isColliding(obj) {
+		return this.x < obj.x + obj.width
+			&& this.x + this.size > obj.x
+			&& this.y < obj.y + obj.width
+			&& this.y + this.size > obj.y;
+	}
 }

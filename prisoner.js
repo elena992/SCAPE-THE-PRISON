@@ -15,28 +15,34 @@ class Prisoner {
     };
     this.isMoving = false;
 
-		this.tick = 0;
+    this.tick = 0;
   }
 
   draw() {
     if (this.isReady) {
-      this.ctx.drawImage(
-        this.img, this.x, this.y, this.width, this.height);
+      this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
-    
   }
   move() {
     this.speed += this.gravity;
-		this.y += this.speed;
+    this.y += this.speed;
   }
   onKeyDown(event) {
-		if (event.keyCode === 37 || event.keyCode === 39) {
-			this.isMoving = true;
-		}
-}
-onKeyUp(event) {
-  if (event.keyCode === 37 || event.keyCode === 39) {
-    this.isMoving = false;
+    if (event.keyCode === 37 || event.keyCode === 39) {
+      this.isMoving = true;
+    }
   }
-}
+  onKeyUp(event) {
+    if (event.keyCode === 37 || event.keyCode === 39) {
+      this.isMoving = false;
+    }
+  }
+  isColliding(obj) {
+    return (
+      this.x < obj.x + obj.width &&
+      this.x + this.width > obj.x &&
+      this.y < obj.y + obj.width &&
+      this.y + this.height > obj.y
+    );
+  }
 }
