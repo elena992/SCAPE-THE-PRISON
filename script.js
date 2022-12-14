@@ -1,14 +1,21 @@
 const game = new Game("canvas-test");
 const startBtn = document.getElementById("start-btn");
+const restartBtn = document.getElementById("restart-btn");
 
 startBtn.addEventListener("click", () => {
+  startBtn.classList.add("hidden");
+  restartBtn.classList.remove("hidden");
   game.start();
 });
 
-document.addEventListener('keydown', function(event) {
-	game.onKeyDown(event);
+restartBtn.addEventListener("click", () => {
+  document.location.reload();
 });
 
-document.addEventListener('keyup', function(event) {
-	game.onKeyUp(event);
+document.addEventListener("keydown", function (event) {
+  game.onKeyDown(event);
+});
+
+document.addEventListener("keyup", function (event) {
+  game.onKeyUp(event);
 });

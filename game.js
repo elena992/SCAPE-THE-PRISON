@@ -2,7 +2,7 @@ class Game {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
-    this.prisoner = new Prisoner(this.ctx, 570, 440);
+    this.prisoner = new Prisoner(this.ctx, 270, 440);
     this.bg = new Background(this.ctx);
     this.guards = [];
     this.bullets = [];
@@ -35,7 +35,7 @@ class Game {
 
   move() {
     this.bg.move();
-    this.bullets.forEach((bullet) => bullet.move());
+    this.bullets.forEach((bullet) => bullet.move(this.bg.speed));
     this.guards.forEach((guard) => {
       guard.move();
       this.prisoner.move();
@@ -92,21 +92,24 @@ class Game {
       this.gameOver();
     }
     const bulletColliding = this.bullets.find((bullet) => {
-      return this.guards.some((guard) => {
+      const guardColliding = this.guards.find((guard) => {
         return bullet.isColliding(guard);
       });
+      if (guardColliding) {
+        this.guards.splice(this.guards.indexOf(guardColliding), 1);
+        return true;
+      }
     });
     if (bulletColliding) {
       console.log("una bala toca al poli");
-      this.guards.splice(this.guards.indexOf(bulletColliding), 1);
       this.bullets.splice(this.bullets.indexOf(bulletColliding), 1);
       this.score++;
     }
   }
 
   drawScore() {
-    this.ctx.fillStyle = "#000";
-    this.ctx.font = "24px Arial";
+    this.ctx.fillStyle = "yellow";
+    this.ctx.font = "40px Arial";
     this.ctx.fillText("Score: " + this.score, 10, 30);
   }
 }

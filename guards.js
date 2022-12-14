@@ -6,7 +6,7 @@ class Guard {
     this.width = 55;
     this.height = 55;
     this.bg = bg;
-    this.speed = -this.bg.speed + 1;
+    this.speed = -this.bg.speed + 3;
     this.img = new Image();
     this.img.src = "./images/guards.png";
 
@@ -25,10 +25,8 @@ class Guard {
 
   move() {
     if (this.isReady) {
-      this.speed = -this.bg.speed + 1;
+      this.speed = -this.bg.speed + 3;
       this.x -= this.speed;
     }
   }
-
-  
 }

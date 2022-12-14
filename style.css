@@ -1,19 +1,23 @@
 html, body {
     font-family: 'Arial', sans-serif;
-  }
-  
-  #canvas-test {
-      border: 1px solid red;
-      display: block;
-  }
-  
-  #start-btn {
-      display: block;
-      font-size: 30px;
-      margin: 15px 0;
-      padding: 5px 10px;
-      border: none;
-      outline: none;
-      color: #fff;
-      background-color: #5f6e57;
-  }
+}
+
+#canvas-test {
+    border: 1px solid red;
+    display: block;
+}
+
+#start-btn, #restart-btn {
+    display: block;
+    font-size: 30px;
+    margin: 15px 0;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #5f6e57;
+}
+
+#start-btn.hidden, #restart-btn.hidden {
+    display: none;
+}
