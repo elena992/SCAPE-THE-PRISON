@@ -9,10 +9,18 @@
 </head>
 
 <body>
-  <h1>SCAPE THE PRISON</h1>
-  <canvas id="canvas-test" width="1000" height="600"></canvas>
-  <button id="start-btn">Start Game</button>
-  <button id="restart-btn" class="hidden">Restart Game</button>
+  <div class="container">
+    <canvas id="canvas-test" width="1000" height="600"></canvas>
+    <div id="intro">
+      <button id="start-btn">Start Game</button>
+      <img id = "Tittle" src = "./images/title-start.png" width="30%" height="40%"/>
+        </br>
+    </div>
+    <div id="game-over" class="hidden">
+      <button id="restart-btn" >Restart Game</button>
+    </div>
+   
+  </div>
 
   <script src="./bullets.js"></script>
   <script src="./prisoner.js"></script>

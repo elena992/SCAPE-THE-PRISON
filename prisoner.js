@@ -6,7 +6,7 @@ class Prisoner {
     this.width = 55;
     this.height = 55;
     this.speed = 0;
-    this.gravity = 0;
+    this.gravity = 0.2;
     this.img = new Image();
     this.img.src = "./images/prisoner.png";
     this.isReady = false;
@@ -14,6 +14,7 @@ class Prisoner {
       this.isReady = true;
     };
     this.isMoving = false;
+    this.isJumping = false;
 
     this.tick = 0;
   }
@@ -26,8 +27,17 @@ class Prisoner {
   move() {
     this.speed += this.gravity;
     this.y += this.speed;
+
+    if (this.y > this.ctx.canvas.height - 100 - this.height) {
+      this.y = this.ctx.canvas.height - 100 - this.height;
+      this.isJumping = false;
+    }
   }
   onKeyDown(event) {
+    if (event.keyCode === 38 && !this.isJumping) {
+      this.isJumping = true;
+      this.speed = -10;
+    }
     if (event.keyCode === 37 || event.keyCode === 39) {
       this.isMoving = true;
     }

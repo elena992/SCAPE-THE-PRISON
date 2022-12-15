@@ -5,6 +5,9 @@ html, body {
 #canvas-test {
     border: 1px solid red;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #start-btn, #restart-btn {
@@ -18,6 +21,21 @@ html, body {
     background-color: #5f6e57;
 }
 
-#start-btn.hidden, #restart-btn.hidden {
-    display: none;
+.hidden {
+    display: none !important;
 }
+
+#intro, #game-over {
+    width: 1000px;
+    height: 600px;
+    background: url("./images/img-start.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }

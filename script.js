@@ -1,10 +1,11 @@
 const game = new Game("canvas-test");
 const startBtn = document.getElementById("start-btn");
 const restartBtn = document.getElementById("restart-btn");
+const introGame = document.getElementById("intro");
 
 startBtn.addEventListener("click", () => {
+  introGame.classList.add("hidden");
   startBtn.classList.add("hidden");
-  restartBtn.classList.remove("hidden");
   game.start();
 });
 
