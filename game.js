@@ -27,9 +27,9 @@ class Game {
     this.bg.draw();
     this.bullets.forEach((bullet) => bullet.draw());
     this.prisoner.draw();
+    this.drawScore();
     this.guards.forEach((guard) => {
-      guard.draw();
-      this.drawScore();
+      guard.draw()
     });
   }
 
