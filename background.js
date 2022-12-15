@@ -29,14 +29,12 @@ class Background {
         this.width,
         this.height
       );
+    }
   }
-}
 
   move() {
     this.x += this.speed;
-    if (this.directions.left) {
-      this.speed = 5;
-    } else if (this.directions.right) {
+    if (this.directions.right) {
       this.speed = -5;
     } else {
       this.speed = 0;
@@ -48,8 +46,8 @@ class Background {
     ) {
       this.x = 0;
     }
-}
-  
+  }
+
   onKeyEvent(event) {
     const isKeyDown = event.type === "keydown";
 
