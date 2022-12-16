@@ -10,14 +10,20 @@
 
 <body>
   <div class="container">
+    <div id="score"></div>
     <canvas id="canvas-test" width="1000" height="600"></canvas>
     <div id="intro">
+    
       <button id="start-btn">Start Game</button>
       <img id = "Tittle" src = "./images/title-start.png" width="30%" height="40%"/>
         </br>
     </div>
-    <div id="game-over" class="hidden">
-      <button id="restart-btn" >Restart Game</button>
+    <div id="game-over" class="hidden" >
+      <div id="game-over-container" class="column" width="50%">
+        <p id="game-over-header">Game Over</p>
+        <button id="restart-btn">Restart Game</button>
+      </div>
+     
     </div>
    
   </div>

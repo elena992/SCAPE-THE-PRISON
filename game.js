@@ -2,16 +2,16 @@ class Game {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext("2d");
-    this.prisoner = new Prisoner(this.ctx, 270, 440);
     this.bg = new Background(this.ctx);
-    this.guards = [];
-    this.bullets = [];
-    this.score = 0;
-    this.tick = 0;
     this.gameOverDiv = document.getElementById("game-over");
   }
 
   start() {
+    this.prisoner = new Prisoner(this.ctx, 270, 440);
+    this.guards = [];
+    this.bullets = [];
+    this.score = 0;
+    this.tick = 0;
     this.intervalId = setInterval(() => {
       this.draw();
       this.move();
@@ -70,11 +70,10 @@ class Game {
   }
 
   gameOver() {
-    this.prisoner = [];
     clearInterval(this.intervalId);
     this.gameOverDiv.classList.remove("hidden");
     this.intervalId = null;
-    this.ctx.fillStyle = "rgba(200, 200, 200, 0.7)";
+    /*this.ctx.fillStyle = "rgba(200, 200, 200, 0.7)";
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     this.ctx.fillStyle = "red";
     this.ctx.font = "50px Goblin One";
@@ -83,7 +82,7 @@ class Game {
       "Game Over",
       this.ctx.canvas.width / 2,
       this.ctx.canvas.height / 2
-    );
+    );*/
   }
 
   checkCollisions() {

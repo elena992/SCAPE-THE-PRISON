@@ -3,11 +3,11 @@ html, body {
 }
 
 #canvas-test {
-    border: 1px solid red;
+   
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #start-btn, #restart-btn {
@@ -21,13 +21,22 @@ html, body {
     background-color: #5f6e57;
 }
 
+#game-over-container{
+    text-align: -webkit-center;
+}
+
 .hidden {
     display: none !important;
 }
 
+#game-over-header{
+    color: red;
+    font-size: 75px;
+}
+
 #intro, #game-over {
-    width: 1000px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     background: url("./images/img-start.png");
     background-position: center;
     background-size: cover;
